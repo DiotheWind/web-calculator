@@ -51,9 +51,6 @@ button {
     border: none;
     flex: 1;
     font-size: 20px;
-}
-
-.number {
     background-color: #e2dddd;
     color: red;
 }
