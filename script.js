@@ -1,5 +1,11 @@
 const numbersBtn = document.querySelectorAll(".number");
+const operatorBtn = document.querySelectorAll(".operator");
 const displayScreen = document.querySelector(".display-screen");
+
+let valueToDisplay = "";
+let leftOperand;
+let rightOperand;
+let operator;
 
 numbersBtn.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -8,10 +14,13 @@ numbersBtn.forEach(btn => {
     });
 });
 
-let valueToDisplay = "";
-let leftOperand;
-let rightOperand;
-let operator;
+operatorBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+        leftOperand = valueToDisplay;
+        valueToDisplay += btn.id;
+        displayValue(valueToDisplay);
+    })
+})
 
 function displayValue(value) {
     displayScreen.textContent = value;
