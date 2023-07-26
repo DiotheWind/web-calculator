@@ -17,8 +17,7 @@ numbersBtn.forEach(btn => {
 operatorBtn.forEach(btn => {
     btn.addEventListener("click", () => {
         leftOperand = valueToDisplay;
-        valueToDisplay += btn.id;
-        displayValue(valueToDisplay);
+        valueToDisplay="";
     })
 })
 
