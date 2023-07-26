@@ -26,9 +26,8 @@ operatorBtn.forEach(btn => {
         } else {
             rightOperand = valueHolder;
             leftOperand = operate(+leftOperand, +rightOperand, operator);
-            displayValue(leftOperand);
+            displayValue(leftOperand);   
             if (leftOperand === "Cannot divide by 0") {
-                displayValue(leftOperand);
                 clearCalculator();
             } else {
                 operator = btn.id;
