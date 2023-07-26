@@ -31,13 +31,9 @@ operatorBtn.forEach(btn => {
                 displayValue(leftOperand);
                 clearCalculator();
             } else {
-                // displayValue(leftOperand);
                 operator = btn.id;
                 valueHolder = "";
             }
-            // displayValue(leftOperand);
-            // operator = btn.id;
-            // valueHolder = "";
         }
     });
 });
