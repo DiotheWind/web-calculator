@@ -24,6 +24,7 @@ operatorBtn.forEach(btn => {
         } else {
             rightOperand = valueHolder;
             leftOperand = operate(+leftOperand, +rightOperand, operator);
+            displayValue(leftOperand);
             operator = btn.id;
             valueHolder = "";
         }
