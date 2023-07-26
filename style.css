@@ -8,6 +8,7 @@ body {
     min-height: 100vh;
     background-color: red;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
@@ -59,4 +60,13 @@ button {
 .equals {
     background-color: red;
     color: white;
+}
+
+.footer {
+    margin-top: 31px;
+    color: white;
+}
+
+.footer a {
+    color: yellow;
 }
