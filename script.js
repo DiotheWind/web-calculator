@@ -13,6 +13,7 @@ numbersBtn.forEach(btn => {
     btn.addEventListener("click", () => {
         valueHolder += btn.id;
         displayValue(valueHolder);
+        if (!(leftOperand === undefined && rightOperand === undefined && operator === undefined)) equalsBtn.disabled = false; 
     });
 });
 
@@ -45,6 +46,7 @@ clearBtn.addEventListener("click", () => {
     leftOperand = undefined;
     rightOperand = undefined;
     operator = undefined;
+    equalsBtn.setAttribute("disabled", "disabled");
     displayValue(valueHolder);
 });
 
