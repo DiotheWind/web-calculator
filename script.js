@@ -17,9 +17,16 @@ numbersBtn.forEach(btn => {
 
 operatorBtn.forEach(btn => {
     btn.addEventListener("click", () => {
-        leftOperand = valueHolder;
-        operator = btn.id;
-        valueHolder = "";
+        if (operator === undefined){
+            leftOperand = valueHolder;
+            operator = btn.id;
+            valueHolder = "";
+        } else {
+            rightOperand = valueHolder;
+            leftOperand = operate(+leftOperand, +rightOperand, operator);
+            operator = btn.id;
+            valueHolder = "";
+        }
     });
 });
 
@@ -28,6 +35,7 @@ equalsBtn.addEventListener("click", () => {
     const answer = operate(+leftOperand, +rightOperand, operator);
     displayValue(answer);
     valueHolder = answer;
+    operator = undefined;
 });
 
 function displayValue(value) {
