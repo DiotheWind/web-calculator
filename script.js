@@ -1,6 +1,7 @@
 const numbersBtn = document.querySelectorAll(".number");
 const operatorBtn = document.querySelectorAll(".operator");
 const equalsBtn = document.querySelector(".equals");
+const clearBtn = document.querySelector(".clear");
 const displayScreen = document.querySelector(".display-screen");
 
 let valueHolder = "";
@@ -37,6 +38,14 @@ equalsBtn.addEventListener("click", () => {
     displayValue(answer);
     valueHolder = answer;
     operator = undefined;
+});
+
+clearBtn.addEventListener("click", () => {
+    valueHolder = "";
+    leftOperand = undefined;
+    rightOperand = undefined;
+    operator = undefined;
+    displayValue(valueHolder);
 });
 
 function displayValue(value) {
