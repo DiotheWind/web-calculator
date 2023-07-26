@@ -27,8 +27,17 @@ operatorBtn.forEach(btn => {
             rightOperand = valueHolder;
             leftOperand = operate(+leftOperand, +rightOperand, operator);
             displayValue(leftOperand);
-            operator = btn.id;
-            valueHolder = "";
+            if (leftOperand === "Cannot divide by 0") {
+                displayValue(leftOperand);
+                clearCalculator();
+            } else {
+                // displayValue(leftOperand);
+                operator = btn.id;
+                valueHolder = "";
+            }
+            // displayValue(leftOperand);
+            // operator = btn.id;
+            // valueHolder = "";
         }
     });
 });
@@ -37,16 +46,12 @@ equalsBtn.addEventListener("click", () => {
     rightOperand = valueHolder;
     const answer = operate(+leftOperand, +rightOperand, operator);
     displayValue(answer);
-    valueHolder = answer;
+    (answer === "Cannot divide by 0") ? valueHolder = "" : valueHolder = answer;
     operator = undefined;
 });
 
 clearBtn.addEventListener("click", () => {
-    valueHolder = "";
-    leftOperand = undefined;
-    rightOperand = undefined;
-    operator = undefined;
-    equalsBtn.setAttribute("disabled", "disabled");
+    clearCalculator();
     displayValue(valueHolder);
 });
 
@@ -87,6 +92,17 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
-    if (num2 === 0) return "Cannot divide by 0";
-    return num1 / num2;
+    if (num2 === 0) {
+        return "Cannot divide by 0";
+    } else {
+        return num1 / num2;
+    }
+}
+
+function clearCalculator() {
+    valueHolder = "";
+    leftOperand = undefined;
+    rightOperand = undefined;
+    operator = undefined;
+    equalsBtn.setAttribute("disabled", "disabled");
 }
