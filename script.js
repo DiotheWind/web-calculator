@@ -26,8 +26,8 @@ operatorBtn.forEach(btn => {
 equalsBtn.addEventListener("click", () => {
     rightOperand = valueHolder;
     const answer = operate(+leftOperand, +rightOperand, operator);
+    displayValue(answer);
     valueHolder = answer;
-    displayValue(valueHolder);
 });
 
 function displayValue(value) {
