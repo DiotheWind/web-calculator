@@ -1,6 +1,21 @@
+const numbersBtn = document.querySelectorAll(".number");
+const displayScreen = document.querySelector(".display-screen");
+
+numbersBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+        valueToDisplay += btn.id;
+        displayValue(valueToDisplay);
+    });
+});
+
+let valueToDisplay = "";
 let leftOperand;
 let rightOperand;
 let operator;
+
+function displayValue(value) {
+    displayScreen.textContent = value;
+}
 
 function operate(num1, num2, operator) {
     let ans;
