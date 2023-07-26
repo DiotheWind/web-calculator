@@ -3,29 +3,31 @@ const operatorBtn = document.querySelectorAll(".operator");
 const equalsBtn = document.querySelector(".equals");
 const displayScreen = document.querySelector(".display-screen");
 
-let valueToDisplay = "";
+let valueHolder = "";
 let leftOperand;
 let rightOperand;
 let operator;
 
 numbersBtn.forEach(btn => {
     btn.addEventListener("click", () => {
-        valueToDisplay += btn.id;
-        displayValue(valueToDisplay);
+        valueHolder += btn.id;
+        displayValue(valueHolder);
     });
 });
 
 operatorBtn.forEach(btn => {
     btn.addEventListener("click", () => {
-        leftOperand = valueToDisplay;
+        leftOperand = valueHolder;
         operator = btn.id;
-        valueToDisplay = "";
+        valueHolder = "";
     });
 });
 
 equalsBtn.addEventListener("click", () => {
-    rightOperand = valueToDisplay;
-    displayValue(operate(+leftOperand, +rightOperand, operator));
+    rightOperand = valueHolder;
+    const answer = operate(+leftOperand, +rightOperand, operator);
+    valueHolder = answer;
+    displayValue(valueHolder);
 });
 
 function displayValue(value) {
