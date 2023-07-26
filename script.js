@@ -16,7 +16,7 @@ numbersBtn.forEach(btn => {
     btn.addEventListener("click", () => {
         valueHolder += btn.id;
         displayValue(valueHolder);
-        if (!(leftOperand === undefined && rightOperand === undefined && operator === undefined)) equalsBtn.disabled = false; 
+        if (!(leftOperand === undefined && rightOperand === undefined && operator === undefined)) equalsBtn.disabled = false; // The Equals Button are initially disabled unless all two operands and an operator are present
     });
 });
 
@@ -28,9 +28,9 @@ operatorBtn.forEach(btn => {
             valueHolder = "";
         } else {
             rightOperand = valueHolder;
-            leftOperand = operate(+leftOperand, +rightOperand, operator);
+            leftOperand = operate(+leftOperand, +rightOperand, operator);  // If a user enters several operations all at once, it will evaluate a pair of number one at a time.
             displayValue(leftOperand);   
-            if (leftOperand === "Cannot divide by 0") {
+            if (leftOperand === "Cannot divide by 0") {  // The calculator resets if the user tries to divide by 0 over the course of several operations
                 clearCalculator();
             } else {
                 operator = btn.id;
@@ -44,19 +44,20 @@ equalsBtn.addEventListener("click", () => {
     rightOperand = valueHolder;
     const answer = operate(+leftOperand, +rightOperand, operator);
     displayValue(answer);
-    (answer === "Cannot divide by 0") ? valueHolder = "" : valueHolder = answer.toString();
+    (answer === "Cannot divide by 0") ? valueHolder = "" : valueHolder = answer.toString();  // The user cannot perform further operations on a "Cannot divide by 0" result
     operator = undefined;
 });
 
+// The negative and decimal button will not work if a negative sign or a decimal sign is already present, respectively
 negativeBtn.addEventListener("click", () => {
-    if (!(valueHolder.includes("-"))) {
+    if (!(valueHolder.includes("-"))) {  
         valueHolder += "-";
         displayValue(valueHolder);
     }
 });
-
+                                              
 decimalBtn.addEventListener("click", () => {
-    if (!(valueHolder.includes("."))) {
+    if (!(valueHolder.includes("."))) {  
         valueHolder += ".";
         displayValue(valueHolder);
     }
@@ -116,7 +117,7 @@ function divide(num1, num2) {
     }
 }
 
-function clearCalculator() {
+function clearCalculator() {   // This function wipes out all existing data, reseting the calculator
     valueHolder = "";
     leftOperand = undefined;
     rightOperand = undefined;
