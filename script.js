@@ -2,6 +2,7 @@ const numbersBtn = document.querySelectorAll(".number");
 const operatorBtn = document.querySelectorAll(".operator");
 const equalsBtn = document.querySelector(".equals");
 const clearBtn = document.querySelector(".clear");
+const deleteBtn = document.querySelector(".delete");
 const displayScreen = document.querySelector(".display-screen");
 
 let valueHolder = "";
@@ -41,9 +42,14 @@ equalsBtn.addEventListener("click", () => {
     rightOperand = valueHolder;
     const answer = operate(+leftOperand, +rightOperand, operator);
     displayValue(answer);
-    (answer === "Cannot divide by 0") ? valueHolder = "" : valueHolder = answer;
+    (answer === "Cannot divide by 0") ? valueHolder = "" : valueHolder = answer.toString();
     operator = undefined;
 });
+
+deleteBtn.addEventListener("click", () => {
+    valueHolder = valueHolder.slice(0, -1);
+    displayValue(valueHolder);
+})
 
 clearBtn.addEventListener("click", () => {
     clearCalculator();
