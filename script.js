@@ -66,7 +66,7 @@ decimalBtn.addEventListener("click", () => {
 deleteBtn.addEventListener("click", () => {
     valueHolder = valueHolder.slice(0, -1);
     displayValue(valueHolder);
-})
+});
 
 clearBtn.addEventListener("click", () => {
     clearCalculator();
