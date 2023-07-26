@@ -1,5 +1,6 @@
 const numbersBtn = document.querySelectorAll(".number");
 const operatorBtn = document.querySelectorAll(".operator");
+const equalsBtn = document.querySelector(".equals");
 const displayScreen = document.querySelector(".display-screen");
 
 let valueToDisplay = "";
@@ -17,9 +18,15 @@ numbersBtn.forEach(btn => {
 operatorBtn.forEach(btn => {
     btn.addEventListener("click", () => {
         leftOperand = valueToDisplay;
-        valueToDisplay="";
-    })
-})
+        operator = btn.id;
+        valueToDisplay = "";
+    });
+});
+
+equalsBtn.addEventListener("click", () => {
+    rightOperand = valueToDisplay;
+    displayValue(operate(+leftOperand, +rightOperand, operator));
+});
 
 function displayValue(value) {
     displayScreen.textContent = value;
