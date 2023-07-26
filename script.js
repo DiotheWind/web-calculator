@@ -49,11 +49,7 @@ function operate(num1, num2, operator) {
             break;
     }
 
-    if (!(Number.isInteger(ans))) {
-        return ans.toFixed("8");
-    } else {
-        return ans;
-    }
+    return ans;
 }
 
 function add(num1, num2) {
