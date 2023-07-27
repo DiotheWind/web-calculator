@@ -94,7 +94,9 @@ function operate(num1, num2, operator) {
             break;
     }
 
-    if ((!Number.isInteger(answer)) && (answer.toString().split(".")[1].length > 8)) {  // If a decimal number is too long, it will round number up to 8 places only
+    if ((!Number.isInteger(answer)) && 
+    (answer !== "Cannot divide by 0") && 
+    (answer.toString().split(".")[1].length > 8)) {  // If a decimal number is too long, it will round number up to 8 places only
         return answer.toFixed(8);
     } else {
         return answer;
