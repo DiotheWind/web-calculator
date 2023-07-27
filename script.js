@@ -78,23 +78,27 @@ function displayValue(value) {
 }
 
 function operate(num1, num2, operator) {
-    let ans;
+    let answer;
     switch(operator) {
         case "+":
-            ans = add(num1, num2);
+            answer = add(num1, num2);
             break;
         case "-":
-            ans = subtract(num1, num2);
+            answer = subtract(num1, num2);
             break;
         case "*":
-            ans = multiply(num1, num2);
+            answer = multiply(num1, num2);
             break;
         case "/":
-            ans = divide(num1, num2);
+            answer = divide(num1, num2);
             break;
     }
 
-    return ans;
+    if ((!Number.isInteger(answer)) && (answer.toString().split(".")[1].length > 8)) {  // If a decimal number is too long, it will round number up to 8 places only
+        return answer.toFixed(8);
+    } else {
+        return answer;
+    }
 }
 
 function add(num1, num2) {
